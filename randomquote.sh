@@ -1,0 +1,1 @@
+curl -s 'http://www.iheartquotes.com/api/v1/random?max_lines=5&source=wisdom'| grep -v "http://iheartquotes"| sed -e 's/\&amp;/\&/g'|sed -e 's/&quot;//g'| awk '{printf "%s ",$0} END {print ""}'|awk -F"--" -v OFS="\n\n" ' $1=$1'
